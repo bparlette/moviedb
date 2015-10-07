@@ -1,0 +1,108 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "year",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "rated",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "released",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "runtime",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "genre",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "director",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "actors",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "plot",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "language",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 12,
+            "fieldName": "awards",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 13,
+            "fieldName": "poster",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 14,
+            "fieldName": "metascore",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 15,
+            "fieldName": "imdbRating",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 16,
+            "fieldName": "imdbVotes",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 17,
+            "fieldName": "imdbID",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 18,
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 19,
+            "fieldName": "response",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 20,
+            "fieldName": "comment",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20151007005400",
+    "dto": "no",
+    "pagination": "infinite-scroll"
+}

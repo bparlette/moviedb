@@ -1,0 +1,146 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myMovieLabel" translate="moviedbApp.movie.home.createOrEditLabel">Create or edit a Movie</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="movie.id" readonly>
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="movie.title"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.year" for="field_year">Year</label>
+            <input type="text" class="form-control" name="year" id="field_year"
+                    ng-model="movie.year"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.rated" for="field_rated">Rated</label>
+            <input type="text" class="form-control" name="rated" id="field_rated"
+                    ng-model="movie.rated"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.released" for="field_released">Released</label>
+            <input type="text" class="form-control" name="released" id="field_released"
+                    ng-model="movie.released"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.runtime" for="field_runtime">Runtime</label>
+            <input type="text" class="form-control" name="runtime" id="field_runtime"
+                    ng-model="movie.runtime"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.genre" for="field_genre">Genre</label>
+            <input type="text" class="form-control" name="genre" id="field_genre"
+                    ng-model="movie.genre"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.director" for="field_director">Director</label>
+            <input type="text" class="form-control" name="director" id="field_director"
+                    ng-model="movie.director"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.actors" for="field_actors">Actors</label>
+            <input type="text" class="form-control" name="actors" id="field_actors"
+                    ng-model="movie.actors"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.plot" for="field_plot">Plot</label>
+            <input type="text" class="form-control" name="plot" id="field_plot"
+                    ng-model="movie.plot"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.language" for="field_language">Language</label>
+            <input type="text" class="form-control" name="language" id="field_language"
+                    ng-model="movie.language"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.country" for="field_country">Country</label>
+            <input type="text" class="form-control" name="country" id="field_country"
+                    ng-model="movie.country"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.awards" for="field_awards">Awards</label>
+            <input type="text" class="form-control" name="awards" id="field_awards"
+                    ng-model="movie.awards"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.poster" for="field_poster">Poster</label>
+            <input type="text" class="form-control" name="poster" id="field_poster"
+                    ng-model="movie.poster"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.metascore" for="field_metascore">Metascore</label>
+            <input type="text" class="form-control" name="metascore" id="field_metascore"
+                    ng-model="movie.metascore"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.imdbRating" for="field_imdbRating">ImdbRating</label>
+            <input type="text" class="form-control" name="imdbRating" id="field_imdbRating"
+                    ng-model="movie.imdbRating"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.imdbVotes" for="field_imdbVotes">ImdbVotes</label>
+            <input type="text" class="form-control" name="imdbVotes" id="field_imdbVotes"
+                    ng-model="movie.imdbVotes"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.imdbID" for="field_imdbID">ImdbID</label>
+            <input type="text" class="form-control" name="imdbID" id="field_imdbID"
+                    ng-model="movie.imdbID"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.type" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                    ng-model="movie.type"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.response" for="field_response">Response</label>
+            <input type="text" class="form-control" name="response" id="field_response"
+                    ng-model="movie.response"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="moviedbApp.movie.comment" for="field_comment">Comment</label>
+            <input type="text" class="form-control" name="comment" id="field_comment"
+                    ng-model="movie.comment"
+                    >
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || editForm.$submitted" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

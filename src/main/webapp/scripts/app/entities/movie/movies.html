@@ -1,0 +1,111 @@
+<div>
+    <h2 translate="moviedbApp.movie.home.title">Movies</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="movie.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="moviedbApp.movie.home.createLabel">Create a new Movie</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteMovieConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(movie.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="moviedbApp.movie.delete.question" translate-values="{id: '{{movie.id}}'}">Are you sure you want to delete this Movie?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="moviedbApp.movie.title">Title</th>
+                    <th translate="moviedbApp.movie.year">Year</th>
+                    <th translate="moviedbApp.movie.rated">Rated</th>
+                    <th translate="moviedbApp.movie.released">Released</th>
+                    <th translate="moviedbApp.movie.runtime">Runtime</th>
+                    <th translate="moviedbApp.movie.genre">Genre</th>
+                    <th translate="moviedbApp.movie.director">Director</th>
+                    <th translate="moviedbApp.movie.actors">Actors</th>
+                    <th translate="moviedbApp.movie.plot">Plot</th>
+                    <th translate="moviedbApp.movie.language">Language</th>
+                    <th translate="moviedbApp.movie.country">Country</th>
+                    <th translate="moviedbApp.movie.awards">Awards</th>
+                    <th translate="moviedbApp.movie.poster">Poster</th>
+                    <th translate="moviedbApp.movie.metascore">Metascore</th>
+                    <th translate="moviedbApp.movie.imdbRating">ImdbRating</th>
+                    <th translate="moviedbApp.movie.imdbVotes">ImdbVotes</th>
+                    <th translate="moviedbApp.movie.imdbID">ImdbID</th>
+                    <th translate="moviedbApp.movie.type">Type</th>
+                    <th translate="moviedbApp.movie.response">Response</th>
+                    <th translate="moviedbApp.movie.comment">Comment</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+                <tr ng-repeat="movie in movies">
+                    <td><a ui-sref="movie.detail({id:movie.id})">{{movie.id}}</a></td>
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.year}}</td>
+                    <td>{{movie.rated}}</td>
+                    <td>{{movie.released}}</td>
+                    <td>{{movie.runtime}}</td>
+                    <td>{{movie.genre}}</td>
+                    <td>{{movie.director}}</td>
+                    <td>{{movie.actors}}</td>
+                    <td>{{movie.plot}}</td>
+                    <td>{{movie.language}}</td>
+                    <td>{{movie.country}}</td>
+                    <td>{{movie.awards}}</td>
+                    <td>{{movie.poster}}</td>
+                    <td>{{movie.metascore}}</td>
+                    <td>{{movie.imdbRating}}</td>
+                    <td>{{movie.imdbVotes}}</td>
+                    <td>{{movie.imdbID}}</td>
+                    <td>{{movie.type}}</td>
+                    <td>{{movie.response}}</td>
+                    <td>{{movie.comment}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="movie.detail({id:movie.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="movie.edit({id:movie.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(movie.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

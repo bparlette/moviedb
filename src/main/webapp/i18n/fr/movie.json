@@ -1,0 +1,38 @@
+{
+    "moviedbApp": {
+        "movie" : {
+            "home": {
+                "title": "Movies",
+                "createLabel": "Créer un nouveau Movie",
+                "createOrEditLabel": "Créer ou éditer un Movie"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Movie {{ id }} ?"
+            },
+            "detail": {
+                "title": "Movie"
+            },
+            "title": "Title",
+            "year": "Year",
+            "rated": "Rated",
+            "released": "Released",
+            "runtime": "Runtime",
+            "genre": "Genre",
+            "director": "Director",
+            "actors": "Actors",
+            "plot": "Plot",
+            "language": "Language",
+            "country": "Country",
+            "awards": "Awards",
+            "poster": "Poster",
+            "metascore": "Metascore",
+            "imdbRating": "ImdbRating",
+            "imdbVotes": "ImdbVotes",
+            "imdbID": "ImdbID",
+            "type": "Type",
+            "response": "Response",
+            "comment": "Comment"
+        }
+    }
+}
+
