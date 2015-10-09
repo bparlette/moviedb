@@ -19,8 +19,7 @@
 		        <div class="form-group">
 		            <label translate="moviedbApp.movie.title" for="field_title">Title</label>
 		            <input type="text" class="form-control" name="title" id="field_title"
-		                    ng-model="movie.title"
-		                    >
+		                    ng-model="movie.title" ng-change="onTitleChange(movie.title)" ng-model-options="{ updateOn: 'blur' }" >
 		        </div>
 		        <div class="form-group">
 		            <label translate="moviedbApp.movie.year" for="field_year">Year</label>
@@ -90,7 +89,7 @@
 		        </div>
 	    	</div>
             <div class="col-md-6">
-             	<img ng-src="{{movie.poster}}" />
+             	<img ng-src="{{movie.poster}}" alt="" />
              	
              	
 		        <div class="form-group">
