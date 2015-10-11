@@ -10,6 +10,7 @@
             </div>
         </div>
     </div>
+    <br>
 
     <div class="modal fade" id="deleteMovieConfirmation">
         <div class="modal-dialog">
@@ -38,71 +39,55 @@
 
     <div class="table-responsive">
         <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th translate="global.field.id">ID</th>
-                    <th translate="moviedbApp.movie.title">Title</th>
-                    <th translate="moviedbApp.movie.year">Year</th>
-                    <th translate="moviedbApp.movie.rated">Rated</th>
-                    <th translate="moviedbApp.movie.released">Released</th>
-                    <th translate="moviedbApp.movie.runtime">Runtime</th>
-                    <th translate="moviedbApp.movie.genre">Genre</th>
-                    <th translate="moviedbApp.movie.director">Director</th>
-                    <th translate="moviedbApp.movie.actors">Actors</th>
-                    <th translate="moviedbApp.movie.plot">Plot</th>
-                    <th translate="moviedbApp.movie.language">Language</th>
-                    <th translate="moviedbApp.movie.country">Country</th>
-                    <th translate="moviedbApp.movie.awards">Awards</th>
-                    <th translate="moviedbApp.movie.poster">Poster</th>
-                    <th translate="moviedbApp.movie.metascore">Metascore</th>
-                    <th translate="moviedbApp.movie.imdbRating">ImdbRating</th>
-                    <th translate="moviedbApp.movie.imdbVotes">ImdbVotes</th>
-                    <th translate="moviedbApp.movie.imdbID">ImdbID</th>
-                    <th translate="moviedbApp.movie.type">Type</th>
-                    <th translate="moviedbApp.movie.response">Response</th>
-                    <th translate="moviedbApp.movie.comment">Comment</th>
-                    <th></th>
-                </tr>
-            </thead>
             <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
                 <tr ng-repeat="movie in movies">
-                    <td><a ui-sref="movie.detail({id:movie.id})">{{movie.id}}</a></td>
-                    <td>{{movie.title}}</td>
-                    <td>{{movie.year}}</td>
-                    <td>{{movie.rated}}</td>
-                    <td>{{movie.released}}</td>
-                    <td>{{movie.runtime}}</td>
-                    <td>{{movie.genre}}</td>
-                    <td>{{movie.director}}</td>
-                    <td>{{movie.actors}}</td>
-                    <td>{{movie.plot}}</td>
-                    <td>{{movie.language}}</td>
-                    <td>{{movie.country}}</td>
-                    <td>{{movie.awards}}</td>
-                    <td>{{movie.poster}}</td>
-                    <td>{{movie.metascore}}</td>
-                    <td>{{movie.imdbRating}}</td>
-                    <td>{{movie.imdbVotes}}</td>
-                    <td>{{movie.imdbID}}</td>
-                    <td>{{movie.type}}</td>
-                    <td>{{movie.response}}</td>
-                    <td>{{movie.comment}}</td>
                     <td>
-                        <button type="submit"
-                                ui-sref="movie.detail({id:movie.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="movie.edit({id:movie.id})"
-                                class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
-                        </button>
-                        <button type="submit"
-                                ng-click="delete(movie.id)"
-                                class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
-                        </button>
+                    <a ui-sref="movie.detail({id:movie.id})"><img ng-src="{{movie.poster}}" class="img-thumbnail" width="210" alt="" /></a></td>
+                    <td>
+                    	<h3><a ui-sref="movie.detail({id:movie.id})">{{movie.title}}</a> <small>({{movie.year}})</small></h3> 
+                    	<div>{{movie.rated}} | {{movie.runtime}} | {{movie.genre}} | {{movie.released}}</div>
+                    	<div ng-hide="movie.imdbRating == null || movie.imdbRating == 'N/A'">
+                    		<div class="progress">
+							  <div class="progress-bar" ng-class="ratingClass(movie.imdbRating*10)" role="progressbar" aria-valuenow="{{movie.imdbRating}}"
+							  aria-valuemin="0" aria-valuemax="10" style="width:{{movie.imdbRating*10}}%">
+							    <strong>IMDB</strong> <a ng-href="http://www.imdb.com/title/{{movie.imdbID}}">{{movie.imdbRating}}/10</a> ({{movie.imdbVotes}} votes) <strong>{{movie.imdbRating*10}}%</strong>
+							  </div>
+							</div>                    	
+                    	</div>                    	
+                    	<div ng-hide="movie.metascore == null || movie.metascore == 'N/A'">
+                    		<div class="progress">
+							  <div class="progress-bar" ng-class="ratingClass(movie.metascore)" role="progressbar" aria-valuenow="{{movie.metascore}}"
+							  aria-valuemin="0" aria-valuemax="10" style="width:{{movie.metascore}}%">
+							    <strong>Metascore</strong> {{movie.metascore}}/100 <strong>{{movie.metascore}}%</strong>
+							  </div>
+							</div> 
+                    	</div>
+                    	<div><blockquote>{{movie.plot}}</blockquote></div>
+                    	<div><strong>Director</strong>: {{movie.director}}</div>
+                    	<div><strong>Actors</strong>: {{movie.actors}}</div>
+                    </td>                    
+                    <td>
+                    	<div>
+	                        <button type="submit"
+	                                ui-sref="movie.detail({id:movie.id})"
+	                                class="btn btn-info btn-sm">
+	                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+	                        </button>
+                        </div>
+                        <div>
+	                        <button type="submit"
+	                                ui-sref="movie.edit({id:movie.id})"
+	                                class="btn btn-primary btn-sm">
+	                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+	                        </button>
+	                     </div>
+	                     <div>
+	                        <button type="submit"
+	                                ng-click="delete(movie.id)"
+	                                class="btn btn-danger btn-sm">
+	                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+	                        </button>
+                        </div>
                     </td>
                 </tr>
             </tbody>
