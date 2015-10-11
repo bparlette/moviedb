@@ -8,7 +8,7 @@
 				<a ui-sref="movie.detail({id:movie.id})">{{movie.title}}</a> <small>({{movie.year}})</small>
 			</h3>
 			<div>{{movie.rated}} | {{movie.runtime}} | {{movie.genre}} | {{movie.released}} ({{movie.country}}) {{movie.language}}</div>
-			<div></div>
+			<br>
 			<div ng-hide="movie.imdbRating == null || movie.imdbRating == 'N/A'">
                     		<div class="progress">
 							  <div class="progress-bar" ng-class="ratingClass(movie.imdbRating*10)" role="progressbar" aria-valuenow="{{movie.imdbRating}}"
@@ -35,7 +35,7 @@
 				<strong>Actors</strong>: {{movie.actors}}
 			</div>
 			<div>
-				<strong>Awards</strong>:{{movie.awards}}
+				<strong>Awards</strong>: {{movie.awards}}
 			</div> 
 		</div>
 	</div>
