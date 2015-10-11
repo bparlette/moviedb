@@ -7,7 +7,7 @@ angular.module('moviedbApp')
                 parent: 'entity',
                 url: '/movies',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: [],
                     pageTitle: 'moviedbApp.movie.home.title'
                 },
                 views: {
@@ -28,7 +28,7 @@ angular.module('moviedbApp')
                 parent: 'entity',
                 url: '/movie/{id}',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: [],
                     pageTitle: 'moviedbApp.movie.detail.title'
                 },
                 views: {
@@ -51,7 +51,7 @@ angular.module('moviedbApp')
                 parent: 'movie',
                 url: '/new',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: [],
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
@@ -74,7 +74,7 @@ angular.module('moviedbApp')
                 parent: 'movie',
                 url: '/{id}/edit',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: [],
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
