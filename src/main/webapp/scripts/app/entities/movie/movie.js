@@ -94,3 +94,27 @@ angular.module('moviedbApp')
                 }]
             });
     });
+
+angular.module('moviedbApp')
+	.directive("movieDetailTemplate", function() {
+	  return {
+	    restrict: "E",
+	    replace: true,
+	    templateUrl: "scripts/app/entities/movie/movie-detail-template.html"
+	  };
+	});
+
+angular.module('moviedbApp')
+	.factory("MovieService", function() {
+	  return {
+		  ratingClass: function(ratingPercent) {
+	    	var ratingClass = "progress-bar-danger";
+        	if (ratingPercent >= 70) {
+        		ratingClass = "progress-bar-success";
+        	} else if (ratingPercent >= 55) {
+        		ratingClass = "progress-bar-warning";
+        	} 
+            return ratingClass; 
+		  }
+	  };
+	});

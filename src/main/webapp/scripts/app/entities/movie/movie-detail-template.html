@@ -1,0 +1,41 @@
+<div class="row">
+		<div class="col-md-3">
+			<a ui-sref="movie.detail({id:movie.id})"><img
+				ng-src="{{movie.poster}}" class="img-thumbnail" alt="" /></a>
+		</div>
+		<div class="col-md-9">
+			<h3>
+				<a ui-sref="movie.detail({id:movie.id})">{{movie.title}}</a> <small>({{movie.year}})</small>
+			</h3>
+			<div>{{movie.rated}} | {{movie.runtime}} | {{movie.genre}} | {{movie.released}} ({{movie.country}}) {{movie.language}}</div>
+			<div></div>
+			<div ng-hide="movie.imdbRating == null || movie.imdbRating == 'N/A'">
+                    		<div class="progress">
+							  <div class="progress-bar" ng-class="ratingClass(movie.imdbRating*10)" role="progressbar" aria-valuenow="{{movie.imdbRating}}"
+							  aria-valuemin="0" aria-valuemax="10" style="width:{{movie.imdbRating*10}}%">
+							    <strong>IMDB</strong> <a ng-href="http://www.imdb.com/title/{{movie.imdbID}}">{{movie.imdbRating}}/10</a> ({{movie.imdbVotes}} votes) <strong>{{movie.imdbRating*10}}%</strong>
+							  </div>
+							</div>                    	
+                    	</div>                    	
+                    	<div ng-hide="movie.metascore == null || movie.metascore == 'N/A'">
+                    		<div class="progress">
+							  <div class="progress-bar" ng-class="ratingClass(movie.metascore)" role="progressbar" aria-valuenow="{{movie.metascore}}"
+							  aria-valuemin="0" aria-valuemax="10" style="width:{{movie.metascore}}%">
+							    <strong>Metascore</strong> {{movie.metascore}}/100 <strong>{{movie.metascore}}%</strong>
+							  </div>
+							</div> 
+                    	</div>
+			<div>
+				<blockquote>{{movie.plot}}</blockquote>
+			</div>
+			<div>
+				<strong>Director</strong>: {{movie.director}}
+			</div>
+			<div>
+				<strong>Actors</strong>: {{movie.actors}}
+			</div>
+			<div>
+				<strong>Awards</strong>:{{movie.awards}}
+			</div> 
+		</div>
+	</div>

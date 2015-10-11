@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('moviedbApp')
-    .controller('MovieController', function ($scope, Movie, ParseLinks) {
+    .controller('MovieController', function ($scope, Movie, ParseLinks, MovieService) {
         $scope.movies = [];
         $scope.page = 0;
+        
+        $scope.ratingClass = MovieService.ratingClass;
+        
         $scope.loadAll = function() {
             Movie.query({page: $scope.page, size: 20}, function(result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
@@ -48,13 +51,5 @@ angular.module('moviedbApp')
             $scope.movie = {title: null, year: null, rated: null, released: null, runtime: null, genre: null, director: null, actors: null, plot: null, language: null, country: null, awards: null, poster: null, metascore: null, imdbRating: null, imdbVotes: null, imdbID: null, type: null, response: null, comment: null, id: null};
         };
         
-        $scope.ratingClass = function(ratingPercent) {
-        	var ratingClass = "progress-bar-danger";
-        	if (ratingPercent >= 70) {
-        		ratingClass = "progress-bar-success";
-        	} else if (ratingPercent >= 55) {
-        		ratingClass = "progress-bar-warning";
-        	} 
-            return ratingClass;
-        }
+        
     });
