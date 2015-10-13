@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-4">
                 <button class="btn btn-primary" ui-sref="movie.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span translate="moviedbApp.movie.home.createLabel">Create a new Movie</span>
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="moviedbApp.movie.home.createLabel">Add a Movie</span>
                 </button>
             </div>
         </div>
@@ -41,7 +41,7 @@
     	<div class="input-group">
 			<input type="text" class="form-control" name="search" id="movie_search"
 			        ng-model="search" aria-describedby="search">
-			<span class="input-group-addon" id="search" ng-click="reset()"><span class="glyphicon glyphicon-search"></span></span>
+			<span class="input-group-addon" id="search" ng-click="loadSearch()"><span class="glyphicon glyphicon-search"></span></span>
 		</div>
         <table class="table table-striped">
             <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">

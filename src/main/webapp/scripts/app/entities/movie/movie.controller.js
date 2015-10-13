@@ -18,13 +18,22 @@ angular.module('moviedbApp')
         };
         $scope.reset = function() {
             $scope.page = 0;
+            $scope.search = "";
             $scope.movies = [];
             $scope.loadAll();
         };
+        
+        $scope.loadSearch = function() {
+        	$scope.page = 0;
+        	$scope.movies = [];
+            $scope.loadAll();
+        };
+        
         $scope.loadPage = function(page) {
             $scope.page = page;
             $scope.loadAll();
         };
+        
         $scope.loadAll();
 
         $scope.delete = function (id) {
