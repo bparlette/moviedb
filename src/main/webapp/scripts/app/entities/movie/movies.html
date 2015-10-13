@@ -36,8 +36,13 @@
             </div>
         </div>
     </div>
-
+					
     <div class="table-responsive">
+    	<div class="input-group">
+			<input type="text" class="form-control" name="search" id="movie_search"
+			        ng-model="search" aria-describedby="search">
+			<span class="input-group-addon" id="search" ng-click="reset()"><span class="glyphicon glyphicon-search"></span></span>
+		</div>
         <table class="table table-striped">
             <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
                 <tr ng-repeat="movie in movies">

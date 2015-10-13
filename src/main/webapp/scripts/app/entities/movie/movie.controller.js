@@ -4,14 +4,15 @@ angular.module('moviedbApp')
     .controller('MovieController', function ($scope, Movie, ParseLinks, MovieService) {
         $scope.movies = [];
         $scope.page = 0;
+        $scope.search;
         
         $scope.ratingClass = MovieService.ratingClass;
         
         $scope.loadAll = function() {
-            Movie.query({page: $scope.page, size: 20}, function(result, headers) {
+            Movie.query({page: $scope.page, size: 20, search:$scope.search}, function(result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
                 for (var i = 0; i < result.length; i++) {
-                    $scope.movies.push(result[i]);
+                	$scope.movies.push(result[i]);
                 }
             });
         };

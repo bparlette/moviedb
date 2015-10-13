@@ -5,10 +5,13 @@ import com.moviedb.domain.Movie;
 import com.moviedb.repository.MovieRepository;
 import com.moviedb.web.rest.util.HeaderUtil;
 import com.moviedb.web.rest.util.PaginationUtil;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -76,9 +79,15 @@ public class MovieResource {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<Movie>> getAllMovies(Pageable pageable)
+    public ResponseEntity<List<Movie>> getAllMovies(Pageable pageable, String search)
         throws URISyntaxException {
-        Page<Movie> page = movieRepository.findAll(pageable);
+    	Page<Movie> page = null;
+    	
+    	if (StringUtils.isEmpty(search)) {
+    		page = movieRepository.findAll(pageable);
+    	} else {
+    		page = movieRepository.findByTitleContainingOrPlotContainingOrYearContainingOrGenreContainingOrActorsContainingOrDirectorContainingOrAwardsContainingAllIgnoreCaseOrderByTitleAsc(search,search,search,search,search,search,search,pageable);        	
+    	}
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/movies");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
