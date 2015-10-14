@@ -43,6 +43,7 @@
         <maven-sortpom-plugin.version>2.3.0</maven-sortpom-plugin.version>
         <metrics-spark-reporter.version>1.2</metrics-spark-reporter.version>
         <metrics-spring.version>3.1.2</metrics-spring.version>
+        <postgresql.version>9.4-1203-jdbc42</postgresql.version>
         <run.addResources>false</run.addResources>
         <spring-security.version>4.0.2.RELEASE</spring-security.version>
         <springfox.version>2.0.3</springfox.version>
@@ -136,6 +137,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.jayway.awaitility</groupId>
@@ -232,10 +234,6 @@
             <version>${joda-time-hibernate.version}</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj-core.version}</version>
@@ -274,6 +272,11 @@
                     <groupId>org.eclipse.jetty</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -540,12 +543,12 @@
                 <configuration>
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                    <driver></driver>
-                    <url></url>
+                    <driver>org.postgresql.Driver</driver>
+                    <url>jdbc:postgresql://localhost/moviedb</url>
                     <defaultSchemaName></defaultSchemaName>
-                    <username></username>
+                    <username>moviedb</username>
                     <password></password>
-                    <referenceUrl>hibernate:spring:com.moviedb.domain?dialect=</referenceUrl>
+                    <referenceUrl>hibernate:spring:com.moviedb.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
                 </configuration>

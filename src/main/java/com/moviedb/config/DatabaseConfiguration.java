@@ -70,12 +70,6 @@ public class DatabaseConfiguration implements EnvironmentAware {
         config.addDataSourceProperty("user", dataSourcePropertyResolver.getProperty("username"));
         config.addDataSourceProperty("password", dataSourcePropertyResolver.getProperty("password"));
 
-        //MySQL optimizations, see https://github.com/brettwooldridge/HikariCP/wiki/MySQL-Configuration
-        if ("com.mysql.jdbc.jdbc2.optional.MysqlDataSource".equals(dataSourcePropertyResolver.getProperty("dataSourceClassName"))) {
-            config.addDataSourceProperty("cachePrepStmts", dataSourcePropertyResolver.getProperty("cachePrepStmts", "true"));
-            config.addDataSourceProperty("prepStmtCacheSize", dataSourcePropertyResolver.getProperty("prepStmtCacheSize", "250"));
-            config.addDataSourceProperty("prepStmtCacheSqlLimit", dataSourcePropertyResolver.getProperty("prepStmtCacheSqlLimit", "2048"));
-        }
         if (metricRegistry != null) {
             config.setMetricRegistry(metricRegistry);
         }
