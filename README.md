@@ -25,7 +25,8 @@ Make sure to select prod when prompted, dev will not work because it uses the H2
 
 Then navigate to your app, ex [http://moviedb.cfapps.io](http://moviedb.cfapps.io)
 
-![Alt text](src/main/webapp/assets/images/hipster.png?raw=true "JHipster")
+![Alt text](screenshotMovies.png?raw=true "Movies")
+![Alt text](screenshotMovieForm.png?raw=true "Movie Form")
 
 # Developing moviedb 
 
