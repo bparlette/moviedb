@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('moviedbApp')
-    .controller('MovieController', function ($scope, Movie, ParseLinks, MovieService) {
+    .controller('MovieController', function ($scope, Movie, ParseLinks) {
         $scope.movies = [];
         $scope.page = 0;
         $scope.search;
         
-        $scope.ratingClass = MovieService.ratingClass;
+        $scope.ratingClass = Movie.ratingClass;
         
         $scope.loadAll = function() {
-            Movie.query({page: $scope.page, size: 20, search:$scope.search}, function(result, headers) {
+            Movie.api.query({page: $scope.page, size: 20, search:$scope.search}, function(result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
                 for (var i = 0; i < result.length; i++) {
                 	$scope.movies.push(result[i]);
@@ -37,14 +37,14 @@ angular.module('moviedbApp')
         $scope.loadAll();
 
         $scope.delete = function (id) {
-            Movie.get({id: id}, function(result) {
+            Movie.api.get({id: id}, function(result) {
                 $scope.movie = result;
                 $('#deleteMovieConfirmation').modal('show');
             });
         };
 
         $scope.confirmDelete = function (id) {
-            Movie.delete({id: id},
+            Movie.api.delete({id: id},
                 function () {
                     $scope.reset();
                     $('#deleteMovieConfirmation').modal('hide');

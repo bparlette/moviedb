@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('moviedbApp')
-    .controller('MovieDetailController', function ($scope, $rootScope, $stateParams, entity, Movie, MovieService) {
+    .controller('MovieDetailController', function ($scope, $rootScope, $stateParams, entity, Movie) {
         $scope.movie = entity;
         
-        $scope.ratingClass = MovieService.ratingClass;
+        $scope.ratingClass = Movie.ratingClass;
         
         $scope.load = function (id) {
-            Movie.get({id: id}, function(result) {
+            Movie.api.get({id: id}, function(result) {
                 $scope.movie = result;
             });
         };

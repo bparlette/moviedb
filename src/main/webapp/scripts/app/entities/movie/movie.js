@@ -43,7 +43,7 @@ angular.module('moviedbApp')
                         return $translate.refresh();
                     }],
                     entity: ['$stateParams', 'Movie', function($stateParams, Movie) {
-                        return Movie.get({id : $stateParams.id});
+                        return Movie.api.get({id : $stateParams.id});
                     }]
                 }
             })
@@ -83,7 +83,7 @@ angular.module('moviedbApp')
                         size: 'lg',
                         resolve: {
                             entity: ['Movie', function(Movie) {
-                                return Movie.get({id : $stateParams.id});
+                                return Movie.api.get({id : $stateParams.id});
                             }]
                         }
                     }).result.then(function(result) {
@@ -101,20 +101,5 @@ angular.module('moviedbApp')
 	    restrict: "E",
 	    replace: true,
 	    templateUrl: "scripts/app/entities/movie/movie-detail-template.html"
-	  };
-	});
-
-angular.module('moviedbApp')
-	.factory("MovieService", function() {
-	  return {
-		  ratingClass: function(ratingPercent) {
-	    	var ratingClass = "progress-bar-danger";
-        	if (ratingPercent >= 70) {
-        		ratingClass = "progress-bar-success";
-        	} else if (ratingPercent >= 55) {
-        		ratingClass = "progress-bar-warning";
-        	} 
-            return ratingClass; 
-		  }
 	  };
 	});

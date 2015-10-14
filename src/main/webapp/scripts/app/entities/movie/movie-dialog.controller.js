@@ -6,7 +6,7 @@ angular.module('moviedbApp').controller('MovieDialogController',
 
         $scope.movie = entity;
         $scope.load = function(id) {
-            Movie.get({id : id}, function(result) {
+            Movie.api.get({id : id}, function(result) {
                 $scope.movie = result;
             });
         };
@@ -18,9 +18,9 @@ angular.module('moviedbApp').controller('MovieDialogController',
 
         $scope.save = function () {
         	if ($scope.movie.id != null) {
-                Movie.update($scope.movie, onSaveFinished);
+                Movie.api.update($scope.movie, onSaveFinished);
             } else {
-                Movie.save($scope.movie, onSaveFinished);
+                Movie.api.save($scope.movie, onSaveFinished);
             }
         };
 
@@ -40,7 +40,7 @@ angular.module('moviedbApp').controller('MovieDialogController',
 		          	while (n--) {
 		          	  key = keys[n];
 		          	  if (key.lastIndexOf("imdb", 0) === 0) {
-		          		  //the service returns imdb properties correctly so we don't need to map it
+		          		  //the service returns imdb* properties correctly so we don't need to map it
 		          		  caseCorrectOmdbmovie[key] = omdbmovie[key];
 		          	  } else {
 		          		  caseCorrectOmdbmovie[key.toLowerCase()] = omdbmovie[key];
