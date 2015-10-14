@@ -1,3 +1,5 @@
+![Alt text](src/main/webapp/assets/images/hipster.png?raw=true "JHipster")
+
 # Developing moviedb 
 
 moviedb was generated using JHipster, you can find documentation and help at [JHipster][].
