@@ -1,6 +1,6 @@
 # moviedb
 
-moviedb helps keep track of your movie collection.  [OMDB](http://www.omdbapi.com) is used to populate the movie details and [IMDB](http://www.imdb.com) is used for the movie Posters.  moviedb allows you to easily add movies to your collection, search (title,plot,actors,director,year,awards...) your collection and view movie details including IMDB and Metascore ratings.
+moviedb helps keep track of your movie collection.  [OMDB](http://www.omdbapi.com) is used to populate the movie details and [IMDB](http://www.imdb.com) is used for the movie Posters.  moviedb allows you to easily add movies to your collection, search (title,plot,actors,director,year,awards...) your collection, view movie details including IMDB and Metascore ratings.  Continue to scroll through your movie collection and your movies will dynamically be added to the page, avoiding the need to click next multiple times to navigate through your list.  
 
 moviedb is best viewed when deployed locally.  The movie posters that are used from [IMDB](http://www.imdb.com) will only display if moviedb is run locally due to license issues.  If you deploy moviedb to [Pivotal Cloud Foundry](http://pivotal.io/platform) the posters will not display. 
 
