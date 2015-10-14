@@ -4,7 +4,11 @@ moviedb helps keep track of your movie collection.  [OMDB](http://www.omdbapi.co
 
 moviedb is best viewed when deployed locally.  The movie posters that are used from [IMDB](http://www.imdb.com) will only display if moviedb is run locally due to license issues.  If you deploy moviedb to [Pivotal Cloud Foundry](http://pivotal.io/platform) the posters will not display. 
 
-# Building Dev and deploying locally
+![Alt text](screenshotMovies.png?raw=true "Movies")
+
+![Alt text](screenshotMovieForm.png?raw=true "Movie Form")
+
+# Building dev and deploying locally
 
 Run:
 
@@ -13,7 +17,7 @@ Run:
 Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 
 
-# Build production and deploying to Cloud Foundry
+# Building prod and deploying to Cloud Foundry
 
 [http://jhipster.github.io/cloudfoundry.html](http://jhipster.github.io/cloudfoundry.html)
 
@@ -25,8 +29,7 @@ Make sure to select prod when prompted, dev will not work because it uses the H2
 
 Then navigate to your app, ex [http://moviedb.cfapps.io](http://moviedb.cfapps.io)
 
-![Alt text](screenshotMovies.png?raw=true "Movies")
-![Alt text](screenshotMovieForm.png?raw=true "Movie Form")
+![Alt text](src/main/webapp/assets/images/hipster.png?raw=true "JHipster")
 
 # Developing moviedb 
 
