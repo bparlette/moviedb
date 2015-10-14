@@ -34,7 +34,10 @@ angular.module('moviedbApp').controller('MovieDialogController',
 	          ).success(function(omdbmovie){
 	          	
 	        	if (omdbmovie.Response == "True") {
-		          	var key, keys = Object.keys(omdbmovie);
+		          	//The omdbapi returns most properties with a capital first letter
+	        		//we lowercase them here to easily map to our Movie object
+	        		var key;
+		          	var keys = Object.keys(omdbmovie);
 		          	var n = keys.length;
 		          	var caseCorrectOmdbmovie={}
 		          	while (n--) {
@@ -45,8 +48,7 @@ angular.module('moviedbApp').controller('MovieDialogController',
 		          	  } else {
 		          		  caseCorrectOmdbmovie[key.toLowerCase()] = omdbmovie[key];
 		          	  }
-		          	}
-		          	
+		          	}		          	
 		          	
 		          	$scope.movie = caseCorrectOmdbmovie;
 	        	}
