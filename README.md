@@ -1,3 +1,26 @@
+# Building Dev and deploying locally
+
+Run:
+
+    mvn
+
+Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+
+
+# Build production and deploying to Cloud Foundry
+
+[http://jhipster.github.io/cloudfoundry.html](http://jhipster.github.io/cloudfoundry.html)
+
+Run:
+
+    yo jhipster:cloudfoundry
+
+Make sure to select prod when prompted, dev will not work because it uses the H2 in memory database.  For the other options you can accept the defaults.
+
+Then navigate to your app, ex [http://moviedb.cfapps.io](http://moviedb.cfapps.io)
+
+![Alt text](src/main/webapp/assets/images/hipster.png?raw=true "JHipster")
+
 # Developing moviedb 
 
 moviedb was generated using JHipster, you can find documentation and help at [JHipster][].
